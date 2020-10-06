@@ -12,7 +12,7 @@ class ethtool (
   $ensure_installed = true
 ) {
 
-  validate_bool($ensure_installed)
+  validate_legacy(Boolean, 'validate_bool', $ensure_installed)
   if str2bool($ensure_installed) {
     ensure_packages(['ethtool'])
   }
